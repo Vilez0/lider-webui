@@ -1,7 +1,7 @@
 require('@ismailbasaran/vuestrophejs');
 import axios from 'axios';
-import store from '../store/store';
 import router from '../router';
+import store from '../store/store';
 
 class XmppClinet {
 
@@ -28,7 +28,7 @@ class XmppClinet {
 
   connect () {
     axios
-    .post(process.env.VUE_APP_URL + "/api/messaging/get-messaging-server-info", { })
+    .post(import.meta.env.VUE_APP_URL + "/api/messaging/get-messaging-server-info", { })
     .then(
       (response) => {
         this.connection = new Strophe.Connection(

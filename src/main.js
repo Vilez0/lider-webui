@@ -30,7 +30,7 @@ app.use(store);
 app.use(ElementPlus);
 app.use(i18n);
 
-axios.defaults.baseURL = process.env.VUE_APP_URL;
+axios.defaults.baseURL = import.meta.env.VITE_URL;
 let authToken = localStorage.getItem('auth_token');
 
 if (authToken) {

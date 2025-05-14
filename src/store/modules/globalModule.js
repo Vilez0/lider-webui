@@ -1,7 +1,6 @@
+import { getLiderWs } from '@/libs/liderws';
 import axios from 'axios';
-import strophe from '@/services/strophe.js';
 import router from '../../router';
-import {getLiderWs} from '@/libs/liderws';
 
 
 const state = {
@@ -34,7 +33,7 @@ const actions = {
     },
     logout({ commit },user) {
         return new Promise((resolve, reject) => {
-            axios.post(process.env.VUE_APP_URL + "/api/auth/logout", user).then(
+            axios.post(import.meta.env.VUE_APP_URL + "/api/auth/logout", user).then(
                 (response) => {
                     if(response){
                         commit('logout')
@@ -59,7 +58,7 @@ const actions = {
     },
     login({ commit }, user) {
         return new Promise((resolve, reject) => {
-            axios.post(process.env.VUE_APP_URL + "/api/auth/signin", user).then(
+            axios.post(import.meta.env.VUE_APP_URL + "/api/auth/signin", user).then(
                 (response) => {
                     if (response) {
                         let token = response.data.token;
